@@ -167,7 +167,7 @@ public class HomeFragment extends Fragment implements ImageAdapter.ClickListener
                         TextSliderView textSliderView = new TextSliderView(getActivity());
                         // initialize a SliderLayout
                         textSliderView
-                                .description(name)  
+                                .description(name)
                                 .image(url_maps.get(name))
                                 .setScaleType(BaseSliderView.ScaleType.Fit);
                         //add your extra information
@@ -182,7 +182,7 @@ public class HomeFragment extends Fragment implements ImageAdapter.ClickListener
                 sliderLayout.setCustomAnimation(new DescriptionAnimation());
                 sliderLayout.setDuration(4000);
             }
-
+//yoms
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
