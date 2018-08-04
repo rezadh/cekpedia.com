@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="me.cekpedia.LoginActivity"
+    android:background="#0288d1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:id="@+id/layout">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="360dp"
+            android:layout_height="150dp"
+            android:paddingTop="50dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/logocekpedia1" />
+    </LinearLayout>
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/bn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:paddingRight="50dp"
+        android:paddingLeft="50dp">
+    </com.google.android.gms.common.SignInButton>
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/prof_section"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="217dp"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/prof_pic"-->
+            <!--android:layout_width="90dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@drawable/logocekpedia1" />-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="216dp"-->
+            <!--android:layout_height="165dp"-->
+            <!--android:layout_marginTop="40dp"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/name"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:gravity="center"-->
+                <!--android:text="Name Display Here"-->
+                <!--android:textColor="#ffffff"-->
+                <!--android:textSize="18dp"-->
+                <!--android:textStyle="bold" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/email"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:gravity="center"-->
+                <!--android:text="Email Display Here"-->
+                <!--android:textColor="#ffffff"-->
+                <!--android:textSize="12dp"-->
+                <!--android:textStyle="bold" />-->
+
+            <!--<Button-->
+                <!--android:id="@+id/home"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:text="Home" />-->
+
+            <!--<Button-->
+                <!--android:id="@+id/bn_logout"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="58dp"-->
+                <!--android:text="LogOut Account" />-->
+
+        <!--</LinearLayout>-->
+    <!--</LinearLayout>-->
+
+</LinearLayout>

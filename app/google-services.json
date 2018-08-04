@@ -1,0 +1,94 @@
+{
+  "project_info": {
+    "project_number": "668210003774",
+    "firebase_url": "https://cekpedia-1519058152846.firebaseio.com",
+    "project_id": "cekpedia-1519058152846",
+    "storage_bucket": "cekpedia-1519058152846.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668210003774:android:ef1b517c6195179d",
+        "android_client_info": {
+          "package_name": "me.cekpedia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "668210003774-shs5kjpi00hc1mpiev8ld7ncah1khg1a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "me.cekpedia",
+            "certificate_hash": "3b403907c42fc8dd70f26f872d91d7a4387f3efa"
+          }
+        },
+        {
+          "client_id": "668210003774-dtag7e2q0sgbfld6rvk8upd6qcslqejl.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "668210003774-el60n5grmf8mucjq2hncj2slufurn1h1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBH3yod7TsNFx6CdBfZebfYgq3TDej2d5Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "668210003774-dtag7e2q0sgbfld6rvk8upd6qcslqejl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668210003774:android:4062979d06879eff",
+        "android_client_info": {
+          "package_name": "org.d3ifcool.toursm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "668210003774-dtag7e2q0sgbfld6rvk8upd6qcslqejl.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "668210003774-el60n5grmf8mucjq2hncj2slufurn1h1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBH3yod7TsNFx6CdBfZebfYgq3TDej2d5Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
