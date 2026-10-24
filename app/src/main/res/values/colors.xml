@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#0288D1</color>
-    <color name="editorColorPrimary">#0288D1</color>
-    <color name="colorPrimaryapp">#0D47A1</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="colorvector">#FFFFFF</color>
-    <color name="black">#000000</color>
-    <color name="colorHeader">#1565C0</color>
-    <color name="sponsor">#00E676</color>
+ <color name="colorPrimary">#0D7568</color><color name="editorColorPrimary">#F6F8F5</color>
+ <color name="colorPrimaryapp">#0D7568</color><color name="colorPrimaryDark">#F6F8F5</color>
+ <color name="colorAccent">#0D7568</color><color name="colorvector">#FFFFFF</color><color name="black">#183B35</color>
+ <color name="colorHeader">#123F36</color><color name="sponsor">#0D7568</color>
+ <color name="canvas">#F6F8F5</color><color name="surface">#FFFFFF</color><color name="ink">#193B34</color>
+ <color name="muted">#60736A</color><color name="mint">#E6F1E9</color><color name="line">#DDE7DF</color>
+ <color name="peach">#F7E5D8</color><color name="coral">#B65B37</color><color name="deep">#123F36</color>
 </resources>

@@ -1,68 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<android.support.v7.widget.CardView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--xmlns:android="http://schemas.android.com/apk/res/android">-->
-<LinearLayout
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="8dp"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_weight="3"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:layout_width="105dp"
-            android:layout_height="95dp"
-            android:scaleType="fitXY"
-            android:padding="8dp"
-            android:id="@+id/imgview"/>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                android:id="@+id/judul"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/lokasi"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/telp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/deskripsi"/>
-
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:layout_gravity="bottom">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SPONSORED"
-            android:textSize="12sp"
-            android:textColor="@color/sponsor"
-            android:visibility="gone"
-            android:id="@+id/tvsponsor"/>
-    </LinearLayout>
-    </LinearLayout>
-<!--</android.support.v7.widget.CardView>-->
-
-
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bg_card" android:padding="12dp">
+ <android.support.v7.widget.CardView android:layout_width="match_parent" android:layout_height="156dp" app:cardCornerRadius="22dp" app:cardElevation="0dp" app:cardPreventCornerOverlap="false"><FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+  <ImageView android:id="@+id/imgview" android:background="@color/mint" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" android:contentDescription="Foto tempat"/>
+  <TextView android:id="@+id/tvsponsor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="top|right" android:layout_margin="10dp" android:background="@drawable/bg_badge" android:padding="8dp" android:text="Pilihan mitra" android:textColor="@color/colorPrimary" android:textSize="10sp" android:fontFamily="sans-serif-medium" android:visibility="gone"/>
+ </FrameLayout></android.support.v7.widget.CardView>
+ <TextView android:id="@+id/judul" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="15dp" android:paddingLeft="4dp" android:paddingRight="4dp" android:textSize="19sp" android:fontFamily="sans-serif-medium" android:textColor="@color/ink" android:maxLines="2" android:ellipsize="end"/>
+ <TextView android:id="@+id/lokasi" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="7dp" android:paddingLeft="4dp" android:paddingRight="4dp" android:textSize="13sp" android:textColor="@color/muted" android:maxLines="2" android:ellipsize="end" android:lineSpacingExtra="3dp"/>
+ <TextView android:id="@+id/telp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:paddingLeft="4dp" android:paddingRight="4dp" android:textSize="12sp" android:textColor="@color/colorPrimary"/>
+ <TextView android:id="@+id/deskripsi" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:paddingLeft="4dp" android:paddingRight="4dp" android:paddingBottom="8dp" android:textSize="13sp" android:textColor="@color/muted" android:maxLines="2" android:ellipsize="end" android:lineSpacingExtra="3dp"/>
+</LinearLayout>

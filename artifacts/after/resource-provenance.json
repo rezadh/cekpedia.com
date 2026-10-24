@@ -1,0 +1,6 @@
+{
+  "source": "tools/after-preview/build/redesigned-resources.apk",
+  "sha256": "84dbc51a5039b94717308fda88cf575d5979482260b62c6df001d80a5219bb04",
+  "resource_bytes": "matches source resource build",
+  "data": "offline fixtures; redesigned source layouts; original activities not run"
+}

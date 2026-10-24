@@ -104,6 +104,8 @@ public class InputLokasiActivity extends AppCompatActivity {
                     selectedImage = imageReturnedIntent.getData();
                     try {
                         Bitmap bm = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
+                        imageView.setPadding(0, 0, 0, 0);
+                        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                         imageView.setImageBitmap(bm);
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
@@ -122,6 +124,11 @@ public class InputLokasiActivity extends AppCompatActivity {
         }
     }
 
+    @Override public boolean onOptionsItemSelected(android.view.MenuItem item) {
+        if (item.getItemId() == android.R.id.home) { finish(); return true; }
+        return super.onOptionsItemSelected(item);
+    }
+
     public String getImageExt(Uri uri){
         ContentResolver contentResolver = getContentResolver();
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
@@ -134,8 +141,8 @@ public class InputLokasiActivity extends AppCompatActivity {
         final String namaSub = i.getStringExtra("SUB");
         //create reference to images folder and assing a name to the file that will be uploaded
 
-        if (etNama.getText().toString().equals("") && etLokasi.getText().toString().equals("") && imageView.getDrawable() == null) {
-            Toast.makeText(InputLokasiActivity.this, "Data is Empty", Toast.LENGTH_SHORT).show();
+        if (etNama.getText().toString().trim().isEmpty() || etLokasi.getText().toString().trim().isEmpty() || selectedImage == null) {
+            Toast.makeText(InputLokasiActivity.this, "Lengkapi nama, lokasi, dan foto tempat.", Toast.LENGTH_SHORT).show();
         } else {
 
             //creating and showing progress dialog

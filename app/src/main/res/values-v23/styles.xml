@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources><style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+ <item name="colorPrimary">@color/canvas</item><item name="colorPrimaryDark">@color/canvas</item><item name="colorAccent">@color/colorPrimary</item>
+ <item name="android:windowBackground">@color/canvas</item><item name="android:fontFamily">sans-serif</item><item name="android:colorBackground">@color/canvas</item><item name="android:textColorPrimary">@color/ink</item><item name="android:textColorSecondary">@color/muted</item><item name="actionBarTheme">@style/Cek.ActionBar</item><item name="actionBarStyle">@style/Cek.ActionBarStyle</item>
+ <item name="android:statusBarColor">@color/canvas</item><item name="android:windowLightStatusBar">true</item><item name="android:navigationBarColor">@color/deep</item>
+</style></resources>

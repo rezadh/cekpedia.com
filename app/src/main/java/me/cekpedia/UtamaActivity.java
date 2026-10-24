@@ -73,18 +73,18 @@ public class UtamaActivity extends AppCompatActivity
     GridLayoutManager layoutManager;
 
     int[] gambar = {
-            R.drawable.ic_masjid,
-            R.drawable.ic_wisata,
-            R.drawable.ic_penginapan,
-            R.drawable.ic_rumah_sakit,
-            R.drawable.ic_restoran,
-            R.drawable.ic_supermarket,
-            R.drawable.ic_sekolah,
-            R.drawable.ic_transportasi,
-            R.drawable.ic_input_lokasi,
-            R.drawable.ic_spbu,
-            R.drawable.ic_apotek,
-            R.drawable.ic_bidan
+            R.drawable.ic_ui_masjid,
+            R.drawable.ic_ui_wisata,
+            R.drawable.ic_ui_hotel,
+            R.drawable.ic_ui_rumahsakit,
+            R.drawable.ic_ui_restoran,
+            R.drawable.ic_ui_supermarket,
+            R.drawable.ic_ui_sekolah,
+            R.drawable.ic_ui_transportasi,
+            R.drawable.ic_ui_input_lokasi,
+            R.drawable.ic_ui_spbu,
+            R.drawable.ic_ui_apotek,
+            R.drawable.ic_ui_bidan
     };
     String [] namaMenu = {
             "    Masjid",
@@ -106,12 +106,15 @@ public class UtamaActivity extends AppCompatActivity
         setContentView(R.layout.activity_utama);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) getSupportActionBar().setDisplayShowTitleEnabled(false);
         mAuth = FirebaseAuth.getInstance();
-        userID = mAuth.getCurrentUser().getUid();
+        userID = mAuth.getCurrentUser() == null ? null : mAuth.getCurrentUser().getUid();
 
         if (mAuth.getCurrentUser() == null){
             mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
             startActivity(new Intent(this, LoginActivity.class));
+            finish();
+            return;
         }
         firebaseStorage = FirebaseStorage.getInstance();
         storageReference = firebaseStorage.getReference();
@@ -147,6 +150,8 @@ public class UtamaActivity extends AppCompatActivity
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if (dataSnapshot.getValue() != null){
                             User users = dataSnapshot.getValue(User.class);
+                            imgViewProf.setPadding(0, 0, 0, 0);
+                            imgViewProf.setScaleType(ImageView.ScaleType.CENTER_CROP);
                             Glide.with(UtamaActivity.this)
                                     .load(users.getPhotoUrl())
                                     .into(imgViewProf);
@@ -161,42 +166,21 @@ public class UtamaActivity extends AppCompatActivity
                     }
                 });
     }
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)
-    {
-        if ((keyCode == KeyEvent.KEYCODE_BACK))
-        {
-            finish();
+    @Override public void onBackPressed() {
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            super.onBackPressed();
+        } else if (!(getSupportFragmentManager().findFragmentById(R.id.frameLayout) instanceof HomeFragment)) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new HomeFragment()).commit();
+            ((NavigationView)findViewById(R.id.nav_view)).setCheckedItem(R.id.nav_home);
+        } else {
+            super.onBackPressed();
         }
-        return super.onKeyDown(keyCode, event);
     }
-//    @Override
-//    public void onBackPressed() {
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        if (drawer.isDrawerOpen(GravityCompat.START)) {
-//            drawer.closeDrawer(GravityCompat.START);
-//        } else {
-//            super.onBackPressed();
-//            this.finish();
-//        }
-//    }
-//    protected void signOut(){
-//        mAuth.signOut();
-//
-//        Auth.GoogleSignInApi.signOut(googleApiClient)
-//                .setResultCallback(new ResultCallback<Status>() {
-//                    @Override
-//                    public void onResult(@NonNull Status status) {
-//
-//                    }
-//                });
-//    }
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.utama, menu);
-        return true;
-    }
+    public boolean onCreateOptionsMenu(Menu menu) { return false; }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -225,7 +209,7 @@ public class UtamaActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.frameLayout, fragment);
             fragmentTransaction.commit();
         } else if (id == R.id.nav_profile) {
-            Toast.makeText(getApplication(), "Fitur masih dalam pengembangan", Toast.LENGTH_SHORT).show();
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new ProfileFragment()).commit();
         } else if (id == R.id.nav_fav) {
             FavouriteFragment fragment = new FavouriteFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -233,16 +217,14 @@ public class UtamaActivity extends AppCompatActivity
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_lokasi) {
-//            setTitle("ABOUT US");
-//            AboutFragment fragment = new AboutFragment();
-//            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-//            fragmentTransaction.replace(R.id.frameLayout, fragment);
-//            fragmentTransaction.commit();
-
+            startActivity(new Intent(this, ListCariActivity.class));
         } else if (id == R.id.nav_share) {
-            Toast.makeText(getApplication(), "Fitur masih dalam pengembangan", Toast.LENGTH_SHORT).show();
+            Intent share = new Intent(Intent.ACTION_SEND);
+            share.setType("text/plain");
+            share.putExtra(Intent.EXTRA_TEXT, "Cekpedia — temukan tempat dan layanan di sekitarmu.");
+            startActivity(Intent.createChooser(share, "Bagikan Cekpedia"));
         } else if (id == R.id.nav_send) {
-            Toast.makeText(getApplication(), "Fitur masih dalam pengembangan", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, InputLokasiActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

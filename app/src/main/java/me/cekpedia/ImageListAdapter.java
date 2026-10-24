@@ -70,6 +70,9 @@ public class ImageListAdapter extends ArrayAdapter<ImageUpload> {
         tvLokasi.setText(listImage.get(position).getLokasi());
         tvTelp.setText(listImage.get(position).getNumber());
         tvDeskripsi.setText(listImage.get(position).getDeskripsi());
+        tvLokasi.setVisibility(android.text.TextUtils.isEmpty(listImage.get(position).getLokasi()) ? View.GONE : View.VISIBLE);
+        tvTelp.setVisibility(android.text.TextUtils.isEmpty(listImage.get(position).getNumber()) ? View.GONE : View.VISIBLE);
+        tvDeskripsi.setVisibility(android.text.TextUtils.isEmpty(listImage.get(position).getDeskripsi()) ? View.GONE : View.VISIBLE);
         Glide.with(context)
                 .load(listImage.get(position).getUrl())
                 .into(imageView);

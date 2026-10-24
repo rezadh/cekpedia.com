@@ -1,61 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    android:background="#E0E0E0"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#0288D1"
-        android:elevation="4dp"
-
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="#0288D1"
-                android:src="@drawable/logocekpedia1"/>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:background="#0288D1"/>
-
-            <SearchView
-                android:id="@+id/carilist"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="8dp"
-                android:drawableLeft="@drawable/ic_search"
-                android:backgroundTint="#FFF"
-                android:iconifiedByDefault="false"
-                android:queryHint="Apa yang anda cari ?"
-                android:background="@drawable/search_layout"
-                android:textSize="16sp">
-
-            </SearchView>
-        </LinearLayout>
-    </android.support.v7.widget.Toolbar>
-
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:background="#FFF"
-        android:layout_margin="8dp"
-        android:id="@+id/reult_list">
-
-    </android.support.v7.widget.RecyclerView>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="@color/canvas">
+ <android.support.v7.widget.Toolbar android:id="@+id/my_toolbar" android:layout_width="match_parent" android:layout_height="64dp" android:background="@color/canvas" app:title="Cari tempat" app:titleTextColor="@color/ink" app:theme="@style/AppBarOverlay"/>
+ <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingLeft="24dp" android:paddingRight="24dp">
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="ADA BANYAK YANG BISA DITEMUKAN" android:textSize="10sp" android:textColor="@color/colorPrimary" android:fontFamily="sans-serif" android:textStyle="bold" android:letterSpacing="0.16" /><TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Kamu sedang&#10;mencari apa?" android:textSize="30sp" android:textColor="@color/ink" android:fontFamily="sans-serif" android:textStyle="bold" android:layout_marginTop="10dp"/>
+  <SearchView android:id="@+id/carilist" android:layout_width="match_parent" android:layout_height="56dp" android:layout_marginTop="22dp" android:layout_marginBottom="18dp" android:background="@drawable/bg_field" android:iconifiedByDefault="false" android:queryHint="Nama tempat, kategori, atau area" android:queryBackground="@android:color/transparent" android:paddingLeft="8dp"/>
+ </LinearLayout>
+ <FrameLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+  <LinearLayout android:id="@+id/search_empty" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_gravity="top" android:layout_margin="24dp" android:background="@drawable/bg_mint" android:padding="24dp" android:orientation="vertical">
+   <ImageView android:layout_width="36dp" android:layout_height="36dp" android:src="@drawable/ic_ui_search"/>
+   <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Mulai dari rasa ingin tahu." android:textSize="19sp" android:textColor="@color/ink" android:fontFamily="sans-serif" android:textStyle="bold" android:layout_marginTop="16dp"/>
+   <TextView android:id="@+id/search_empty_message" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ketik nama tempat atau area. Tujuan berikutnya mungkin lebih dekat dari yang kamu kira." android:textColor="@color/muted" android:textSize="14sp" android:lineSpacingExtra="5dp" android:layout_marginTop="8dp"/>
+  </LinearLayout>
+  <android.support.v7.widget.RecyclerView android:id="@+id/reult_list" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingLeft="24dp" android:paddingRight="24dp" android:paddingBottom="24dp" android:clipToPadding="false" android:visibility="gone"/>
+ </FrameLayout>
 </LinearLayout>

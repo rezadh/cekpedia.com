@@ -1,126 +1,27 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#E0E0E0"
-    tools:context="me.cekpedia.HomeFragment">
-
-    <LinearLayout android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#0288D1"
-            android:padding="8dp"
-            android:orientation="vertical">
-
-            <EditText
-                android:id="@+id/cari"
-                android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:paddingLeft="16dp"
-                android:drawableLeft="@drawable/ic_search"
-                android:backgroundTint="#FFF"
-                android:hint="Apa yang anda cari ? "
-                android:background="@drawable/search_layout"
-                android:textSize="14sp">
-
-            </EditText>
-        </LinearLayout>
-
-        <!--<android.support.v7.widget.Toolbar-->
-        <!--android:id="@+id/my_toolbar"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:background="#0288D1"-->
-        <!--android:elevation="4dp"-->
-
-        <!--android:theme="@style/ThemeOverlay.AppCompat.ActionBar"-->
-        <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >-->
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="vertical">-->
-            <!--<ImageView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="?attr/actionBarSize"-->
-                <!--android:background="#0288D1"-->
-                <!--android:src="@drawable/logocekpedia1"/>-->
-            <!--<ImageView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-
-                <!--android:background="#0288D1"/>-->
-
-            <!--<EditText-->
-                <!--android:id="@+id/cari"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="36dp"-->
-                <!--android:layout_marginBottom="8dp"-->
-                <!--android:layout_marginLeft="16dp"-->
-                <!--android:layout_marginRight="16dp"-->
-                <!--android:layout_marginTop="8dp"-->
-                <!--android:drawableLeft="@drawable/ic_search"-->
-                <!--android:backgroundTint="#FFF"-->
-                <!--android:hint="Apa yang anda cari ? "-->
-                <!--android:background="@drawable/search_layout"-->
-                <!--android:textSize="14sp">-->
-
-            <!--</EditText>-->
-        <!--</LinearLayout>-->
-    <!--</android.support.v7.widget.Toolbar>-->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="170dp">
-
-            <com.daimajia.slider.library.SliderLayout
-                android:id="@+id/slider"
-                android:layout_width="match_parent"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:layout_height="170dp"/>
-
-            <!--<android.support.v4.view.ViewPager-->
-                <!--android:id="@+id/viewPagerImageAds"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent"/>-->
-
-            <!--<com.viewpagerindicator.CirclePageIndicator-->
-                <!--android:id="@+id/circlePageImageAds"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_alignParentBottom="true"-->
-                <!--android:layout_centerHorizontal="true"-->
-                <!--android:gravity="bottom"-->
-                <!--android:padding="10dip"-->
-                <!--app:centered="true"-->
-                <!--app:fillColor="@android:color/white"-->
-                <!--app:pageColor="@android:color/darker_gray"-->
-                <!--app:snap="false" />-->
-
-        </RelativeLayout>
-        <!--<ImageView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="170dp"-->
-        <!--android:id="@+id/slider1"-->
-        <!--android:scaleType="fitXY"-->
-        <!--android:src="@drawable/iklan"/>-->
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-
-        android:background="#FFF"
-        android:id="@+id/recycler_view">
-
-    </android.support.v7.widget.RecyclerView>
-    </LinearLayout>
-</FrameLayout>
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/canvas" android:fillViewport="true" android:focusable="true" android:focusableInTouchMode="true" android:descendantFocusability="beforeDescendants" android:clipToPadding="false">
+ <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingLeft="24dp" android:paddingRight="24dp" android:paddingBottom="28dp">
+ <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="JELAJAH LOKAL, CERITA BARU" android:textSize="10sp" android:textColor="@color/colorPrimary" android:fontFamily="sans-serif" android:textStyle="bold" android:letterSpacing="0.16" android:layout_marginTop="16dp"/>
+ <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Mau ke mana&#10;hari ini?" android:textSize="34sp" android:textColor="@color/ink" android:fontFamily="sans-serif" android:textStyle="bold" android:lineSpacingExtra="0dp" android:layout_marginTop="10dp"/>
+ <EditText android:id="@+id/cari" style="@style/Cek.Field" android:layout_marginTop="22dp" android:layout_marginBottom="20dp" android:drawableLeft="@drawable/ic_ui_search" android:drawablePadding="12dp" android:hint="Cari tempat atau kebutuhanmu" android:focusable="false" android:clickable="true" android:inputType="text"/>
+ <android.support.v7.widget.CardView android:layout_width="match_parent" android:layout_height="196dp" app:cardCornerRadius="22dp" app:cardElevation="0dp" app:cardPreventCornerOverlap="false"><FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+  <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/transtudiobandung" android:scaleType="centerCrop" android:contentDescription="Suasana destinasi wisata"/>
+  <com.daimajia.slider.library.SliderLayout android:id="@+id/slider" android:layout_width="match_parent" android:layout_height="match_parent"/>
+  <View android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_hero_overlay"/>
+  <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="20dp" android:gravity="bottom">
+   <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="SELANGKAH DARI RUTINITAS" android:textSize="9sp" android:textColor="@color/surface" android:fontFamily="sans-serif" android:letterSpacing="0.15" android:textStyle="bold"/>
+   <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Dekat di peta.&#10;Jauh dari biasa." android:textSize="25sp" android:textColor="@color/surface" android:fontFamily="sans-serif" android:textStyle="bold" android:layout_marginTop="8dp"/>
+  </LinearLayout>
+ </FrameLayout></android.support.v7.widget.CardView>
+ <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="26dp" android:layout_marginBottom="14dp" android:gravity="center_vertical" android:orientation="horizontal">
+  <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Jelajahi kategori" android:textSize="19sp" android:textColor="@color/ink" android:fontFamily="sans-serif-medium"/>
+  <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="12 pilihan" android:textSize="11sp" android:textColor="@color/muted"/>
+ </LinearLayout>
+ <android.support.v7.widget.RecyclerView android:id="@+id/recycler_view" android:layout_width="match_parent" android:layout_height="336dp" android:nestedScrollingEnabled="false" android:overScrollMode="never"/>
+ <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:orientation="vertical" android:padding="20dp" android:background="@drawable/bg_peach">
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="DARI YANG DEKAT, UNTUK SEMUA" android:textSize="10sp" android:textColor="@color/colorPrimary" android:fontFamily="sans-serif" android:textStyle="bold" android:letterSpacing="0.16" />
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Tempat baik layak ditemukan." android:textSize="18sp" android:textColor="@color/ink" android:fontFamily="sans-serif" android:textStyle="bold" android:layout_marginTop="9dp"/>
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Dari kebutuhan harian sampai tujuan akhir pekan. Temukan semuanya di Cekpedia." android:textSize="13sp" android:textColor="@color/ink" android:fontFamily="sans-serif" android:lineSpacingExtra="4dp" android:layout_marginTop="8dp"/>
+ </LinearLayout>
+ </LinearLayout>
+</ScrollView>

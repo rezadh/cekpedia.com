@@ -1,0 +1,170 @@
+[
+  {
+    "file": "01-login.png",
+    "title": "Masuk",
+    "screen": "login",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  },
+  {
+    "file": "02-beranda.png",
+    "title": "Beranda",
+    "screen": "home",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  },
+  {
+    "file": "03-beranda-bawah.png",
+    "title": "Beranda · kategori",
+    "screen": "home-bottom",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  },
+  {
+    "file": "04-menu-samping.png",
+    "title": "Menu samping",
+    "screen": "drawer",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  },
+  {
+    "file": "05-pencarian.png",
+    "title": "Pencarian",
+    "screen": "search",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  },
+  {
+    "file": "06-masjid.png",
+    "title": "Masjid",
+    "screen": "category:masjid",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  },
+  {
+    "file": "07-wisata.png",
+    "title": "Wisata",
+    "screen": "category:wisata",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  },
+  {
+    "file": "08-hotel.png",
+    "title": "Penginapan",
+    "screen": "category:hotel",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  },
+  {
+    "file": "09-rumahsakit.png",
+    "title": "Rumah Sakit",
+    "screen": "category:rumahsakit",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  },
+  {
+    "file": "10-restoran.png",
+    "title": "Restoran",
+    "screen": "category:restoran",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  },
+  {
+    "file": "11-supermarket.png",
+    "title": "Supermarket",
+    "screen": "category:supermarket",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  },
+  {
+    "file": "12-sekolah.png",
+    "title": "Sekolah",
+    "screen": "category:sekolah",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  },
+  {
+    "file": "13-transportasi.png",
+    "title": "Transportasi",
+    "screen": "category:transportasi",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  },
+  {
+    "file": "14-spbu.png",
+    "title": "SPBU",
+    "screen": "category:spbu",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  },
+  {
+    "file": "15-apotek.png",
+    "title": "Apotek",
+    "screen": "category:apotek",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  },
+  {
+    "file": "16-bidan.png",
+    "title": "Bidan",
+    "screen": "category:bidan",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  },
+  {
+    "file": "17-input-lokasi-atas.png",
+    "title": "Usulkan tempat · atas",
+    "screen": "input",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  },
+  {
+    "file": "18-input-lokasi-bawah.png",
+    "title": "Usulkan tempat · bawah",
+    "screen": "input-bottom",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  },
+  {
+    "file": "19-detail-tempat.png",
+    "title": "Detail tempat",
+    "screen": "detail",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  },
+  {
+    "file": "20-favorit.png",
+    "title": "Tempat favorit",
+    "screen": "favorites",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  },
+  {
+    "file": "21-profil.png",
+    "title": "Profil",
+    "screen": "profile",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  },
+  {
+    "file": "22-kategori-kosong.png",
+    "title": "Kategori · kosong",
+    "screen": "category:apotek",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  },
+  {
+    "file": "23-hasil-pencarian.png",
+    "title": "Hasil pencarian",
+    "screen": "search",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  },
+  {
+    "file": "24-pencarian-kosong.png",
+    "title": "Pencarian · tidak cocok",
+    "screen": "search",
+    "kind": "AFTER · PREVIEW OFFLINE",
+    "note": "Layout dari source Android yang diperbarui; isi tempat adalah data contoh. Peta dan layanan eksternal tidak dijalankan."
+  }
+]

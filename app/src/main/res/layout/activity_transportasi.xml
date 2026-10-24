@@ -1,69 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="me.cekpedia.HotelActivity">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#0288D1" />
-
-        <SearchView
-            android:id="@+id/cari"
-            android:layout_width="match_parent"
-            android:layout_height="?android:attr/actionBarSize"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:backgroundTint="#FFF"
-            android:background="@drawable/search_layout"
-            android:drawableLeft="@drawable/ic_search"
-            android:queryHint="apa yang anda cari ?"
-            android:iconifiedByDefault="false"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/cari"
-            android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/cari"
-            android:layout_marginTop="567dp"
-            android:src="@drawable/ic_home_black_24dp"
-            android:tint="@color/colorvector" />
-
-    </RelativeLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/listviewtransportasi">
-            <!--android:layout_marginBottom="?android:attr/actionBarSize"-->
-
-
-        </ListView>
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:background="#FFF"
-            android:layout_margin="8dp"
-            android:visibility="gone"
-            android:id="@+id/result_list_transportasi">
-
-        </android.support.v7.widget.RecyclerView>
-
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="@color/canvas">
+     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingLeft="24dp" android:paddingRight="24dp" android:paddingTop="14dp">
+      <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="PILIH TUJUANMU" android:textSize="10sp" android:textColor="@color/colorPrimary" android:fontFamily="sans-serif" android:textStyle="bold" android:letterSpacing="0.16" /><TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Transportasi" android:textSize="30sp" android:textColor="@color/ink" android:fontFamily="sans-serif" android:textStyle="bold" android:layout_marginTop="10dp"/><TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Langkah pertama menuju tujuanmu." android:textSize="14sp" android:textColor="@color/muted" android:fontFamily="sans-serif" android:layout_marginTop="8dp" android:lineSpacingExtra="3dp"/>
+      <SearchView android:id="@+id/cari" android:layout_width="match_parent" android:layout_height="56dp" android:layout_marginTop="22dp" android:layout_marginBottom="16dp" android:background="@drawable/bg_field" android:iconifiedByDefault="false" android:queryHint="Nama tempat atau area" android:queryBackground="@android:color/transparent" android:paddingLeft="8dp" android:paddingRight="8dp"/>
+     </LinearLayout>
+     <FrameLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+      <ListView android:id="@+id/listviewtransportasi" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingLeft="24dp" android:paddingRight="24dp" android:paddingBottom="24dp" android:clipToPadding="false" android:divider="@android:color/transparent" android:dividerHeight="14dp" android:scrollbars="none"/>
+      <android.support.v7.widget.RecyclerView android:id="@+id/result_list_transportasi" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingLeft="24dp" android:paddingRight="24dp" android:paddingBottom="24dp" android:clipToPadding="false" android:visibility="gone"/>
+<include layout="@layout/view_empty_places" android:id="@+id/category_empty" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="24dp" android:layout_marginRight="24dp" android:visibility="gone"/>
+     </FrameLayout>
     </LinearLayout>
-</LinearLayout>

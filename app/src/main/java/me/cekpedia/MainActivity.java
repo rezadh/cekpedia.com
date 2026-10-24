@@ -33,18 +33,18 @@ public class MainActivity extends AppCompatActivity {
     GridLayoutManager layoutManager;
 
     int[] gambar = {
-            R.drawable.ic_masjid,
-            R.drawable.ic_wisata,
-            R.drawable.ic_penginapan,
-            R.drawable.ic_rumah_sakit,
-            R.drawable.ic_restoran,
-            R.drawable.ic_supermarket,
-            R.drawable.ic_sekolah,
-            R.drawable.ic_transportasi,
-            R.drawable.ic_input_lokasi,
-            R.drawable.ic_spbu,
-            R.drawable.ic_apotek,
-            R.drawable.ic_bidan
+            R.drawable.ic_ui_masjid,
+            R.drawable.ic_ui_wisata,
+            R.drawable.ic_ui_hotel,
+            R.drawable.ic_ui_rumahsakit,
+            R.drawable.ic_ui_restoran,
+            R.drawable.ic_ui_supermarket,
+            R.drawable.ic_ui_sekolah,
+            R.drawable.ic_ui_transportasi,
+            R.drawable.ic_ui_input_lokasi,
+            R.drawable.ic_ui_spbu,
+            R.drawable.ic_ui_apotek,
+            R.drawable.ic_ui_bidan
         };
     String [] namaMenu = {
         "    Masjid",
@@ -69,16 +69,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 //        final ArrayList<Image> cekpedia = new ArrayList<>();
 //
-//        cekpedia.add(new Image(R.drawable.ic_masjid, "MASJID"));
-//        cekpedia.add(new Image(R.drawable.ic_wisata, "Wisata"));
+//        cekpedia.add(new Image(R.drawable.ic_ui_masjid, "MASJID"));
+//        cekpedia.add(new Image(R.drawable.ic_ui_wisata, "Wisata"));
 
         recyclerView = findViewById(R.id.recycler_view);
-        layoutManager = new GridLayoutManager(MainActivity.this, 4);
-        recyclerView.setHasFixedSize(true);
+        layoutManager = new GridLayoutManager(MainActivity.this, 4) {
+            @Override public boolean canScrollVertically() { return false; }
+        };
+        recyclerView.setHasFixedSize(false);
+        recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setLayoutManager(layoutManager);
         ImageAdapter myAdapter = new ImageAdapter(MainActivity.this, gambar, namaMenu);
         recyclerView.setAdapter(myAdapter);
         searchView = (EditText) findViewById(R.id.cari);
+        searchView.setFocusable(false);
+        searchView.setFocusableInTouchMode(false);
+        searchView.setCursorVisible(false);
         searchView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

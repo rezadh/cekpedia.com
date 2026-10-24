@@ -61,6 +61,9 @@ public class FavouriteFragment extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_favourite, container, false);
         listView = view.findViewById(R.id.listviewfav1);
+        listView.setEmptyView(view.findViewById(R.id.favorites_empty));
+        ((android.widget.TextView)view.findViewById(R.id.empty_places_title)).setText("Belum ada tempat tersimpan.");
+        ((android.widget.TextView)view.findViewById(R.id.empty_places_message)).setText("Ketuk ikon hati pada detail tempat untuk menyimpannya di sini.");
         final ArrayList<String> Kategori = new ArrayList<>();
         imgList = new ArrayList<>();
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, Kategori);

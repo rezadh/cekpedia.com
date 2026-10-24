@@ -38,7 +38,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.viewpagerindicator.CirclePageIndicator;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -71,24 +70,23 @@ public class HomeFragment extends Fragment implements ImageAdapter.ClickListener
     GridLayoutManager layoutManager;
     View view;
     ViewPager viewPager;
-    CirclePageIndicator circlePage;
     ImageSlideAdapter slideAdapter;
     private static final String ARG_PARAM1 = "params";
     private String imageUrls;
 
     int[] gambar = {
-            R.drawable.ic_masjid,
-            R.drawable.ic_wisata,
-            R.drawable.ic_penginapan,
-            R.drawable.ic_rumah_sakit,
-            R.drawable.ic_restoran,
-            R.drawable.ic_supermarket,
-            R.drawable.ic_sekolah,
-            R.drawable.ic_transportasi,
-            R.drawable.ic_input_lokasi,
-            R.drawable.ic_spbu,
-            R.drawable.ic_apotek,
-            R.drawable.ic_bidan
+            R.drawable.ic_ui_masjid,
+            R.drawable.ic_ui_wisata,
+            R.drawable.ic_ui_hotel,
+            R.drawable.ic_ui_rumahsakit,
+            R.drawable.ic_ui_restoran,
+            R.drawable.ic_ui_supermarket,
+            R.drawable.ic_ui_sekolah,
+            R.drawable.ic_ui_transportasi,
+            R.drawable.ic_ui_input_lokasi,
+            R.drawable.ic_ui_spbu,
+            R.drawable.ic_ui_apotek,
+            R.drawable.ic_ui_bidan
     };
     String [] namaMenu = {
             "    Masjid",
@@ -128,13 +126,26 @@ public class HomeFragment extends Fragment implements ImageAdapter.ClickListener
 //        viewPager = view.findViewById(R.id.viewPagerImageAds);
 //        circlePage = view.findViewById(R.id.circlePageImageAds);
         recyclerView = view.findViewById(R.id.recycler_view);
-        layoutManager = new GridLayoutManager(getActivity(), 4);
-        recyclerView.setHasFixedSize(true);
+        layoutManager = new GridLayoutManager(getActivity(), 4) {
+            @Override public boolean canScrollVertically() { return false; }
+        };
+        recyclerView.setHasFixedSize(false);
+        recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setLayoutManager(layoutManager);
         ImageAdapter myAdapter = new ImageAdapter(getActivity(), gambar, namaMenu);
         recyclerView.setAdapter(myAdapter);
         myAdapter.setClickListener(this);
         searchView = (EditText) view.findViewById(R.id.cari);
+        searchView.setFocusable(false);
+        searchView.setFocusableInTouchMode(false);
+        searchView.setCursorVisible(false);
+        final View homeView = view;
+        homeView.post(new Runnable() {
+            @Override public void run() {
+                homeView.requestFocus();
+                ((android.widget.ScrollView)homeView).scrollTo(0, 0);
+            }
+        });
         searchView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -152,30 +163,13 @@ public class HomeFragment extends Fragment implements ImageAdapter.ClickListener
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 //                final Map<String, Object> detailMenu = (Map<String, Object>) dataSnapshot.getValue();
-                Map<String, ImageSlider> td = new HashMap<String, ImageSlider>();
-                HashMap<String,String> url_maps = new HashMap<String, String>();
-                ArrayList<ImageSlider> value = new ArrayList<>(td.values());
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-//                    ImageUpload img = ds.getValue(ImageUpload.class);
                     String text = ds.child("name").getValue(String.class);
                     String image = ds.child("url").getValue(String.class);
-                    url_maps.put(text.toString(), image.toString());
-//                    for (ImageSlider ad : value) {
-//
-//                    }
-                    for (String name : url_maps.keySet()) {
-                        TextSliderView textSliderView = new TextSliderView(getActivity());
-                        // initialize a SliderLayout
-                        textSliderView
-                                .description(name)
-                                .image(url_maps.get(name))
-                                .setScaleType(BaseSliderView.ScaleType.Fit);
-                        //add your extra information
-                        textSliderView.bundle(new Bundle());
-                        textSliderView.getBundle()
-                                .putString("extra", name);
-                        sliderLayout.addSlider(textSliderView);
-                    }
+                    if (text == null || image == null || image.trim().isEmpty()) continue;
+                    TextSliderView slide = new TextSliderView(getActivity());
+                    slide.description(text).image(image).setScaleType(BaseSliderView.ScaleType.Fit);
+                    sliderLayout.addSlider(slide);
                 }
                 sliderLayout.setPresetTransformer(SliderLayout.Transformer.Accordion);
                 sliderLayout.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);

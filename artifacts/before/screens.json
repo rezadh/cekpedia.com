@@ -1,0 +1,134 @@
+[
+  {
+    "file": "01-login-apk-asli.png",
+    "title": "Login · APK asli dijalankan",
+    "kind": "APK ASLI",
+    "note": "Dijalankan langsung dari cekpedia.apk; belum login Google."
+  },
+  {
+    "file": "02-beranda-preview.png",
+    "title": "Beranda",
+    "kind": "PREVIEW LAYOUT ASLI",
+    "note": "Banner Firebase tidak dimuat."
+  },
+  {
+    "file": "03-menu-samping-preview.png",
+    "title": "Menu samping",
+    "kind": "PREVIEW LAYOUT ASLI",
+    "note": "Header bawaan APK; data akun tidak dimuat."
+  },
+  {
+    "file": "04-pencarian-preview.png",
+    "title": "Pencarian",
+    "kind": "PREVIEW LAYOUT ASLI",
+    "note": "Keadaan awal tanpa hasil pencarian."
+  },
+  {
+    "file": "05-masjid-preview.png",
+    "title": "Masjid",
+    "kind": "PREVIEW LAYOUT ASLI",
+    "note": "Dua data contoh dan foto bawaan APK; bukan data Firebase."
+  },
+  {
+    "file": "06-wisata-preview.png",
+    "title": "Wisata",
+    "kind": "PREVIEW LAYOUT ASLI",
+    "note": "Dua data contoh dan foto bawaan APK; bukan data Firebase."
+  },
+  {
+    "file": "07-hotel-preview.png",
+    "title": "Penginapan",
+    "kind": "PREVIEW LAYOUT ASLI",
+    "note": "Dua data contoh dan foto bawaan APK; bukan data Firebase."
+  },
+  {
+    "file": "08-rumahsakit-preview.png",
+    "title": "Rumah Sakit",
+    "kind": "PREVIEW LAYOUT ASLI",
+    "note": "Dua data contoh dan foto bawaan APK; bukan data Firebase."
+  },
+  {
+    "file": "09-restoran-preview.png",
+    "title": "Restoran",
+    "kind": "PREVIEW LAYOUT ASLI",
+    "note": "Dua data contoh dan foto bawaan APK; bukan data Firebase."
+  },
+  {
+    "file": "10-supermarket-preview.png",
+    "title": "Supermarket",
+    "kind": "PREVIEW LAYOUT ASLI",
+    "note": "Dua data contoh dan foto bawaan APK; bukan data Firebase."
+  },
+  {
+    "file": "11-sekolah-preview.png",
+    "title": "Sekolah",
+    "kind": "PREVIEW LAYOUT ASLI",
+    "note": "Dua data contoh dan foto bawaan APK; bukan data Firebase."
+  },
+  {
+    "file": "12-transportasi-preview.png",
+    "title": "Transportasi",
+    "kind": "PREVIEW LAYOUT ASLI",
+    "note": "Dua data contoh dan foto bawaan APK; bukan data Firebase."
+  },
+  {
+    "file": "13-spbu-preview.png",
+    "title": "SPBU",
+    "kind": "PREVIEW LAYOUT ASLI",
+    "note": "Dua data contoh dan foto bawaan APK; bukan data Firebase."
+  },
+  {
+    "file": "14-apotek-preview.png",
+    "title": "Apotek",
+    "kind": "PREVIEW LAYOUT ASLI",
+    "note": "Dua data contoh dan foto bawaan APK; bukan data Firebase."
+  },
+  {
+    "file": "15-bidan-preview.png",
+    "title": "Bidan",
+    "kind": "PREVIEW LAYOUT ASLI",
+    "note": "Dua data contoh dan foto bawaan APK; bukan data Firebase."
+  },
+  {
+    "file": "16-input-lokasi-atas-preview.png",
+    "title": "Input lokasi · atas",
+    "kind": "PREVIEW LAYOUT ASLI",
+    "note": "Form asli. Unggah dan pemilih lokasi tidak dijalankan."
+  },
+  {
+    "file": "17-input-lokasi-bawah-preview.png",
+    "title": "Input lokasi · bawah",
+    "kind": "PREVIEW LAYOUT ASLI",
+    "note": "Bagian bawah form asli."
+  },
+  {
+    "file": "18-detail-tempat-preview.png",
+    "title": "Detail tempat",
+    "kind": "PREVIEW LAYOUT ASLI",
+    "note": "Data contoh; peta diganti area abu-abu berlabel offline."
+  },
+  {
+    "file": "19-favorit-preview.png",
+    "title": "Favorit",
+    "kind": "PREVIEW LAYOUT ASLI",
+    "note": "Isi daftar contoh; bukan favorit akun asli."
+  },
+  {
+    "file": "20-profil-placeholder-preview.png",
+    "title": "Layout profil belum selesai",
+    "kind": "PREVIEW LAYOUT ASLI",
+    "note": "Layout fragment yang masih placeholder; menu Profil aslinya hanya menampilkan pesan pengembangan."
+  },
+  {
+    "file": "21-login-release-preview.png",
+    "title": "Login · APK rilis",
+    "kind": "PREVIEW LAYOUT ASLI",
+    "note": "Layout dari app/release/app-release.apk; berbeda dengan cekpedia.apk di root."
+  },
+  {
+    "file": "22-apotek-kosong-preview.png",
+    "title": "Apotek · tanpa data",
+    "kind": "PREVIEW LAYOUT ASLI",
+    "note": "Keadaan layout kosong tanpa overlay loading Firebase."
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "checks": [
+    "home category tap \u2192 Apotek",
+    "place card \u2192 matching detail",
+    "drawer \u2192 profile",
+    "profile \u2192 favorite places"
+  ],
+  "scope": "offline preview; not Firebase end-to-end"
+}

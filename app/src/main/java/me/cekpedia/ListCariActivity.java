@@ -1,202 +1,99 @@
 package me.cekpedia;
 
-import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
+import android.content.Intent;
+import android.graphics.Rect;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.SearchView;
-
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
+import android.widget.TextView;
+import com.google.firebase.database.*;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ListCariActivity extends AppCompatActivity {
-
-    private SearchView searchView;
-    private String namaMenu, namaSub;
-    private RecyclerView mResult;
-    private DatabaseReference mDatabaseRef;
     public static final String FB_DATABASE_PATH = "cekpedia";
-    ArrayList<String>JudulList;
-    ArrayList<String>LokasiList;
-    ArrayList<String>NomorList;
-    ArrayList<String>GambarList;
-    ArrayList<String>nameSub;
-    SearchAdapter searchAdapter;
+    private RecyclerView results;
+    private View empty;
+    private TextView message;
+    private int requestVersion;
+    private final ArrayList<String> titles = new ArrayList<>();
+    private final ArrayList<String> locations = new ArrayList<>();
+    private final ArrayList<String> numbers = new ArrayList<>();
+    private final ArrayList<String> images = new ArrayList<>();
+    private final ArrayList<String> categories = new ArrayList<>();
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    @Override protected void onCreate(Bundle state) {
+        super.onCreate(state);
         setContentView(R.layout.activity_list_cari);
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH);
-
-
-        searchView = (SearchView) findViewById(R.id.carilist);
-        mResult = (RecyclerView) findViewById(R.id.reult_list);
-        mResult.setHasFixedSize(true);
-        mResult.setLayoutManager(new LinearLayoutManager(this));
-        mResult.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
-        JudulList = new ArrayList<>();
-        LokasiList = new ArrayList<>();
-        NomorList = new ArrayList<>();
-        nameSub = new ArrayList<>();
-        GambarList = new ArrayList<>();
-        Intent i = getIntent();
-        namaMenu = i.getStringExtra("JUDUL");
-        namaSub = i.getStringExtra("SUB");
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                if (!newText.toString().isEmpty()){
-                    setAdapter(newText.toString());
-                    mResult.setVisibility(View.VISIBLE);
-                }else {
-                    JudulList.clear();
-                    NomorList.clear();
-                    GambarList.clear();
-                    LokasiList.clear();
-                    nameSub.clear();
-                    mResult.setVisibility(View.INVISIBLE);
-                    mResult.removeAllViews();
-                }
-                return false;
+        Toolbar toolbar = findViewById(R.id.my_toolbar);
+        setSupportActionBar(toolbar);
+        setTitle("Cari tempat");
+        if (getSupportActionBar() != null) getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) { finish(); }
+        });
+        empty = findViewById(R.id.search_empty);
+        message = findViewById(R.id.search_empty_message);
+        results = findViewById(R.id.reult_list);
+        results.setLayoutManager(new LinearLayoutManager(this));
+        results.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override public void getItemOffsets(Rect out, View view, RecyclerView parent, RecyclerView.State state) {
+                out.bottom = (int)(16 * getResources().getDisplayMetrics().density);
             }
         });
-
-//        searchView.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
-//
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable editable) {
-//                if (!editable.toString().isEmpty()){
-//                    setAdapter(editable.toString());
-//                }else {
-//                    JudulList.clear();
-//                    NomorList.clear();
-//                    GambarList.clear();
-//                    LokasiList.clear();
-//                    nameSub.clear();
-//                    mResult.removeAllViews();
-//                }
-//
-//            }
-//        });
-
-//        searchView.setOnSearchClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                firebaseSearch();
-//            }
-//        });
-//    }
-//
-//    private void firebaseSearch(){
-//        FirebaseRecyclerAdapter<ImageUpload, ListViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<ImageUpload, ListViewHolder>(
-//                ListViewHolder.class,
-//                R.layout.list_item,
-//                ImageUpload.class,
-//                mDatabaseRef
-//        ) {
-//            @Override
-//            protected void onBindViewHolder(@NonNull ListViewHolder holder, int position, @NonNull ImageUpload model) {
-//
-//            }
-//
-//            @Override
-//            public ListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-//                return null;
-//            }
-//        };
-//    }
-//
-//    public class ListViewHolder extends RecyclerView.ViewHolder{
-//
-//        View mView;
-//        public ListViewHolder(View itemView) {
-//            super(itemView);
-//
-//            mView = itemView;
-//        }
-    }
-
-    private void setAdapter(final String searchString) {
-
-        mDatabaseRef.child("cekpediaItem").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                JudulList.clear();
-                NomorList.clear();
-                GambarList.clear();
-                LokasiList.clear();
-                mResult.removeAllViews();
-                int counter = 0;
-                for (DataSnapshot ds : dataSnapshot.getChildren()){
-                        for (DataSnapshot Snapshot : ds.getChildren()) {
-                            String judul = Snapshot.child("name").getValue(String.class);
-                            String lokasi = Snapshot.child("lokasi").getValue(String.class);
-                            String number = Snapshot.child("number").getValue(String.class);
-                            String gambar = Snapshot.child("url").getValue(String.class);
-                            String namaSub = Snapshot.child("nameSub").getValue(String.class);
-
-                            //                    if (Snapshot.child("name").getValue(String.class).contains(searchString)){
-                            if (judul.toLowerCase().contains(searchString)) {
-                                JudulList.add(judul);
-                                LokasiList.add(lokasi);
-                                NomorList.add(number);
-                                GambarList.add(gambar);
-                                nameSub.add(namaSub);
-//                                mResult.setVisibility(View.VISIBLE);
-                                counter++;
-                            } else {
-//                                mResult.setVisibility(View.INVISIBLE);
-                                mResult.removeAllViews();
-                                JudulList.clear();
-                                NomorList.clear();
-                                GambarList.clear();
-                                LokasiList.clear();
-                            }
-                            if (counter == 15) {
-                                break;
-                            }
-
-                        }
-                }
-                searchAdapter = new SearchAdapter(ListCariActivity.this, JudulList, LokasiList, NomorList, GambarList, nameSub);
-                mResult.setAdapter(searchAdapter);
+        SearchView search = findViewById(R.id.carilist);
+        search.clearFocus();
+        View content = findViewById(android.R.id.content);
+        content.setFocusableInTouchMode(true);
+        content.requestFocus();
+        search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override public boolean onQueryTextSubmit(String text) { return true; }
+            @Override public boolean onQueryTextChange(String text) {
+                int version = ++requestVersion;
+                String query = text.trim().toLowerCase(Locale.ROOT);
+                results.setVisibility(View.GONE);
+                empty.setVisibility(View.VISIBLE);
+                message.setText(query.isEmpty()
+                        ? "Ketik nama tempat atau area. Tujuan berikutnya mungkin lebih dekat dari yang kamu kira."
+                        : "Mencari tempat yang cocok untukmu…");
+                if (!query.isEmpty()) search(query, version);
+                return true;
             }
-
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
+        });
+    }
+    private void search(final String query, final int version) {
+        FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH).child("cekpediaItem")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override public void onDataChange(DataSnapshot data) {
+                if (version != requestVersion || isFinishing()) return;
+                titles.clear(); locations.clear(); numbers.clear(); images.clear(); categories.clear();
+                outer: for (DataSnapshot group : data.getChildren()) {
+                    for (DataSnapshot item : group.getChildren()) {
+                        String title = item.child("name").getValue(String.class);
+                        String location = item.child("lokasi").getValue(String.class);
+                        String category = item.child("nameSub").getValue(String.class);
+                        String haystack = (title == null ? "" : title) + " " + (location == null ? "" : location) + " " + (category == null ? "" : category);
+                        if (title != null && haystack.toLowerCase(Locale.ROOT).contains(query)) {
+                            titles.add(title); locations.add(location);
+                            numbers.add(item.child("number").getValue(String.class));
+                            images.add(item.child("url").getValue(String.class));
+                            categories.add(category == null ? group.getKey() : category);
+                            if (titles.size() == 15) break outer;
+                        }
+                    }
+                }
+                results.setAdapter(new SearchAdapter(ListCariActivity.this, titles, locations, numbers, images, categories));
+                results.setVisibility(titles.isEmpty() ? View.GONE : View.VISIBLE);
+                empty.setVisibility(titles.isEmpty() ? View.VISIBLE : View.GONE);
+                message.setText("Belum ada tempat yang cocok. Coba nama atau area lainnya.");
+            }
+            @Override public void onCancelled(DatabaseError error) {
+                if (version != requestVersion || isFinishing()) return;
+                message.setText("Tempat belum bisa dimuat. Periksa koneksi lalu coba mencari kembali.");
             }
         });
     }

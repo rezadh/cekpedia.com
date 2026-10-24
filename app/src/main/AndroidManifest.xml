@@ -23,7 +23,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        android:theme="@style/AppTheme.NoActionBar">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBFqQlvZglmRiDgJKb_dGWBaI1LPEK1Ymk" />
@@ -47,7 +47,7 @@
         </activity>
         <activity
             android:name=".HotelActivity"
-            android:label="PENGINAPAN"
+            android:label="Penginapan"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/EditorTheme"
@@ -58,7 +58,7 @@
         </activity>
         <activity
             android:name=".MasjidActivity"
-            android:label="MASJID"
+            android:label="Masjid"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/EditorTheme"
@@ -69,7 +69,7 @@
         </activity>
         <activity
             android:name=".WisataActivity"
-            android:label="WISATA"
+            android:label="Wisata"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/EditorTheme"
@@ -80,7 +80,7 @@
         </activity>
         <activity
             android:name=".RumahsakitActivity"
-            android:label="RUMAH SAKIT"
+            android:label="Rumah Sakit"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/EditorTheme"
@@ -91,7 +91,7 @@
         </activity>
         <activity
             android:name=".RestoranActivity"
-            android:label="RESTORAN"
+            android:label="Restoran"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/EditorTheme"
@@ -102,7 +102,7 @@
         </activity>
         <activity
             android:name=".SupermarketActivity"
-            android:label="SUPERMARKET"
+            android:label="Supermarket"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/EditorTheme"
@@ -113,7 +113,7 @@
         </activity>
         <activity
             android:name=".SekolahActivity"
-            android:label="SEKOLAH"
+            android:label="Sekolah"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/EditorTheme"
@@ -124,7 +124,7 @@
         </activity>
         <activity
             android:name=".TransportasiActivity"
-            android:label="TRANSPORTASI"
+            android:label="Transportasi"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/EditorTheme"
@@ -146,7 +146,7 @@
         </activity>
         <activity
             android:name=".ApotekActivity"
-            android:label="APOTEK"
+            android:label="Apotek"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/EditorTheme"
@@ -157,7 +157,7 @@
         </activity>
         <activity
             android:name=".BidanActivity"
-            android:label="BIDAN"
+            android:label="Bidan"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/EditorTheme"
@@ -172,10 +172,10 @@
         <activity
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".InputLokasiActivity"
-            android:label="Input Location"
+            android:label="Usulkan tempat"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/EditorTheme"
@@ -192,7 +192,7 @@
             android:label="@string/title_activity_utama"
             android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
     </application>

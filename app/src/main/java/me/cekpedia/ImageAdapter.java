@@ -38,7 +38,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.MyHolder> {
 
     @Override
     public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View layout = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_view, null);
+        View layout = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_view, parent, false);
         MyHolder myHolder = new MyHolder(layout);
         return myHolder;
     }
@@ -46,7 +46,8 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.MyHolder> {
     @Override
     public void onBindViewHolder(MyHolder holder, int position) {
         holder.imgview.setImageResource(icons[position]);
-        holder.txt.setText(text[position]);
+        holder.txt.setText(text[position].trim());
+        holder.itemView.setContentDescription(text[position].trim());
     }
 
     public void setClickListener(ClickListener clickListener) {
@@ -70,8 +71,9 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.MyHolder> {
 
         @Override
         public void onClick(View view) {
-            if (clickListener != null){
-                clickListener.itemClicked(view, getPosition());
+            int position = getAdapterPosition();
+            if (clickListener != null && position != RecyclerView.NO_POSITION){
+                clickListener.itemClicked(view, position);
             }
         }
     }

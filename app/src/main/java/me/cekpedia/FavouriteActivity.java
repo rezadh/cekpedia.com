@@ -40,6 +40,7 @@ public class FavouriteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_favourite);
 
         listView = findViewById(R.id.listviewfav);
+        listView.setEmptyView(findViewById(R.id.favorites_empty));
 
 
         final ArrayList<String> Kategori = new ArrayList<>();

@@ -6,32 +6,32 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home_black_24dp"
-            android:title="Home" />
+            android:title="Beranda" />
         <item
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_person_black_24dp"
-            android:title="Profile" />
+            android:title="Profil" />
 
         <item
             android:id="@+id/nav_fav"
             android:icon="@drawable/ic_favorite_border_black_24dp"
-            android:title="Favourite" />
+            android:title="Tempat favorit" />
         <item
             android:id="@+id/nav_lokasi"
             android:icon="@drawable/ic_location_on_black_24dp"
-            android:title="Near Me" />
+            android:title="Cari tempat" />
 
-    <item android:title="Communicate">
+    <item android:title="IKUT BERKONTRIBUSI">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="Bagikan Cekpedia" />
 
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="Usulkan tempat" />
         </menu>
     </item>
 

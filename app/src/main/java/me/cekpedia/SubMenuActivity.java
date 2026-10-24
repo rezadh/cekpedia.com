@@ -89,6 +89,7 @@ public class SubMenuActivity extends FragmentActivity implements OnMapReadyCallb
         imgMenu = findViewById(R.id.gambarmenu);
 //        mMapView = findViewById(R.id.map);
         fav = findViewById(R.id.imgfav);
+        fav.setColorFilter(getResources().getColor(R.color.colorPrimary));
 //        favfull = findViewById(R.id.imgfavmark);
         judul = findViewById(R.id.tvjudul);
         alamat = findViewById(R.id.tvalamat);
@@ -122,34 +123,13 @@ public class SubMenuActivity extends FragmentActivity implements OnMapReadyCallb
         FavouriteFragment fragobj = new FavouriteFragment();
         fragobj.setArguments(bundle);
         info.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                judul.setVisibility(View.VISIBLE);
-                alamat.setVisibility(View.VISIBLE);
-                info1.setVisibility(View.VISIBLE);
-                nomor.setVisibility(View.VISIBLE);
-                fav.setVisibility(View.VISIBLE);
-                imgMenu.setVisibility(View.INVISIBLE);
-                info.setVisibility(View.INVISIBLE);
-
+            @Override public void onClick(View view) {
+                new android.app.AlertDialog.Builder(SubMenuActivity.this)
+                        .setTitle(title == null ? "Informasi tempat" : title)
+                        .setMessage(address == null ? "Informasi tempat sedang dimuat." : address)
+                        .setPositiveButton("Tutup", null).show();
             }
         });
-        info1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                judul.setVisibility(View.INVISIBLE);
-                alamat.setVisibility(View.INVISIBLE);
-                info1.setVisibility(View.INVISIBLE);
-                nomor.setVisibility(View.INVISIBLE);
-                fav.setVisibility(View.INVISIBLE);
-                info.setVisibility(View.VISIBLE);
-                imgMenu.setVisibility(View.VISIBLE);
-            }
-        });
-
-//        mMapView.onCreate(savedInstanceState);
-//        mMapView.onResume(); // needed to get the map to display immediately
-//        MapsInitializer.initialize(this.getApplicationContext());
         RateUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -157,9 +137,12 @@ public class SubMenuActivity extends FragmentActivity implements OnMapReadyCallb
             }
         });
         Sent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(SubMenuActivity.this, "Fitur ini masih dalam pengembangan", Toast.LENGTH_SHORT).show();
+            @Override public void onClick(View view) {
+                Intent share = new Intent(Intent.ACTION_SEND);
+                share.setType("text/plain");
+                String placeTitle = title == null ? "Tempat di Cekpedia" : title;
+                share.putExtra(Intent.EXTRA_TEXT, placeTitle + (address == null ? "" : "\n" + address));
+                startActivity(Intent.createChooser(share, "Bagikan tempat"));
             }
         });
 //        m_map.getUiSettings().setZoomControlsEnabled(true);
@@ -273,7 +256,7 @@ public class SubMenuActivity extends FragmentActivity implements OnMapReadyCallb
                         favorit = favorit + namaMenu + "/";
 //                        Toast.makeText(SubMenuActivity.this, "2", Toast.LENGTH_SHORT).show();
                     }
-                    fav.setBackgroundResource(R.drawable.ic_favorite_black_24dp);
+                    fav.setImageResource(R.drawable.ic_favorite_black_24dp);
                     isFavorite=true;
                     Toast.makeText(SubMenuActivity.this, "Add To Favorite", Toast.LENGTH_SHORT).show();
                     merchantNameLikeSize=0;
@@ -300,13 +283,15 @@ public class SubMenuActivity extends FragmentActivity implements OnMapReadyCallb
                         }
                     }
                     submenufav.child("favourite").setValue(favorit);
-                    fav.setBackgroundResource(R.drawable.ic_favorite_border_black_24dp);
+                    fav.setImageResource(R.drawable.ic_favorite_border_black_24dp);
                     Toast.makeText(SubMenuActivity.this, "Remo  ve From Favorite", Toast.LENGTH_SHORT).show();
                     isFavorite=false;
                 }
             }
         });
     }
+    public void closeDetail(View view) { finish(); }
+
     public void LOADFavorite(){
         FirebaseDatabase.getInstance().getReference(Constants.USER_KEY)
                 .child(FBUser.getEmail().replace(".", ","))
@@ -329,19 +314,19 @@ public class SubMenuActivity extends FragmentActivity implements OnMapReadyCallb
                             }
                             for (int i = 0; i < merchantNameLikeSize; i++){
                                 if (FavoriteNameLike[i].equals(namaMenu)){
-                                    fav.setBackgroundResource(R.drawable.ic_favorite_black_24dp);
+                                    fav.setImageResource(R.drawable.ic_favorite_black_24dp);
                                     isFavorite = true;
 //                                    Toast.makeText(SubMenuActivity.this, "is "+isFavorite+"", Toast.LENGTH_SHORT).show();
                                     return;
                                 }else {
-                                    fav.setBackgroundResource(R.drawable.ic_favorite_border_black_24dp);
+                                    fav.setImageResource(R.drawable.ic_favorite_border_black_24dp);
                                     isFavorite = false;
                                 }
 
                             }
                         }
                         else {
-                            fav.setBackgroundResource(R.drawable.ic_favorite_border_black_24dp);
+                            fav.setImageResource(R.drawable.ic_favorite_border_black_24dp);
                             isFavorite = false;
                         }
                     }

@@ -1,69 +1,8 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="me.cekpedia.FavouriteFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context="me.cekpedia.HotelActivity">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-
-                android:background="#0288D1" />
-
-            <EditText
-                android:id="@+id/cari"
-                android:layout_width="match_parent"
-                android:layout_height="?android:attr/actionBarSize"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:background="#FFFF"
-                android:drawableLeft="@drawable/ic_search"
-                android:hint="apa yang anda cari ?"
-                android:paddingLeft="16dp" />
-
-
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:orientation="vertical">
-
-            <ListView
-                android:id="@+id/listviewfav1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true">
-                <!--android:layout_marginBottom="?android:attr/actionBarSize"-->
-
-
-            </ListView>
-        </LinearLayout>
-        <!--<android.support.v7.widget.RecyclerView-->
-        <!--android:id="@+id/recycler_view"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--/>-->
-    </LinearLayout>
-</FrameLayout>
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="@color/canvas">
+     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
+      <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="RUANG UNTUK YANG BERKESAN" android:textSize="10sp" android:textColor="@color/colorPrimary" android:fontFamily="sans-serif" android:textStyle="bold" android:letterSpacing="0.16" /><TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ingin kembali&#10;ke sini." android:textSize="30sp" android:textColor="@color/ink" android:fontFamily="sans-serif" android:textStyle="bold" android:layout_marginTop="10dp"/><TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Tempat yang kamu simpan, untuk perjalanan berikutnya." android:textSize="14sp" android:textColor="@color/muted" android:fontFamily="sans-serif" android:layout_marginTop="10dp" android:lineSpacingExtra="4dp"/>
+      <EditText android:id="@+id/cari" style="@style/Cek.Field" android:hint="Tempat favoritmu" android:visibility="gone"/>
+     </LinearLayout>
+     <ListView android:id="@+id/listviewfav1" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:paddingLeft="24dp" android:paddingRight="24dp" android:paddingBottom="24dp" android:clipToPadding="false" android:divider="@android:color/transparent" android:dividerHeight="14dp" android:scrollbars="none"/>
+    <include layout="@layout/view_empty_places" android:id="@+id/favorites_empty" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="24dp" android:layout_marginRight="24dp" android:visibility="gone"/></LinearLayout>

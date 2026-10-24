@@ -1,13 +1,14 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="me.cekpedia.ProfileFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/canvas" android:fillViewport="true">
+ <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="RUANG JELAJAHMU" android:textSize="10sp" android:textColor="@color/colorPrimary" android:fontFamily="sans-serif" android:textStyle="bold" android:letterSpacing="0.16" /><TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Perjalananmu,&#10;caramu sendiri." android:textSize="31sp" android:textColor="@color/ink" android:fontFamily="sans-serif" android:textStyle="bold" android:layout_marginTop="12dp"/>
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_deep" android:orientation="vertical" android:padding="24dp" android:layout_marginTop="28dp">
+   <ImageView android:id="@+id/profile_avatar" android:layout_width="64dp" android:layout_height="64dp" android:background="@drawable/bg_avatar" android:clipToOutline="true" android:src="@drawable/ic_ui_person" android:padding="18dp" android:contentDescription="Foto profil"/>
+   <TextView android:id="@+id/profile_name" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:text="Penjelajah Cekpedia" android:textColor="@color/surface" android:textSize="22sp" android:fontFamily="sans-serif-medium"/>
+   <TextView android:id="@+id/profile_email" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Selamat datang di ruang jelajahmu." android:textColor="#BFDBCC" android:textSize="13sp"/>
+  </LinearLayout>
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Bawa yang berkesan&#10;ke perjalanan berikutnya." android:textSize="22sp" android:textColor="@color/ink" android:fontFamily="sans-serif" android:textStyle="bold" android:layout_marginTop="28dp"/>
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Kumpulkan tempat favoritmu. Bagikan tempat baik yang kamu temukan." android:textSize="14sp" android:textColor="@color/muted" android:fontFamily="sans-serif" android:lineSpacingExtra="5dp" android:layout_marginTop="12dp" android:layout_marginBottom="22dp"/>
+  <Button android:id="@+id/open_favorites" style="@style/Cek.Button.Primary" android:text="Lihat tempat favorit" /><Button android:id="@+id/open_contribution" style="@style/Cek.Button.Secondary" android:text="Usulkan tempat baru" android:layout_marginTop="12dp"/>
+ </LinearLayout>
+</ScrollView>

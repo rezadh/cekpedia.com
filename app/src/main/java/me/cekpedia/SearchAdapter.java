@@ -59,24 +59,20 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
     public SearchAdapter.SearchViewHolder onCreateViewHolder(ViewGroup parent, final int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
 
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, SubMenuActivity.class);
-                intent.putExtra("JUDUL", JudulList.get(viewType));
-                if (!nameSub.equals(""))
-                    intent.putExtra("SUB", nameSub);
-                else
-                    intent.putExtra("SUB", nameSubList.get(viewType));
-                context.startActivity(intent);
-            }
-        });
-
         return new SearchAdapter.SearchViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(SearchViewHolder holder, int position) {
+        final int itemPosition = position;
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View view) {
+                Intent intent = new Intent(context, SubMenuActivity.class);
+                intent.putExtra("JUDUL", JudulList.get(itemPosition));
+                intent.putExtra("SUB", nameSub.isEmpty() ? nameSubList.get(itemPosition) : nameSub);
+                context.startActivity(intent);
+            }
+        });
         holder.judul.setText(JudulList.get(position));
         holder.lokasi.setText(LokasiList.get(position));
         holder.nomor.setText(NumberList.get(position));

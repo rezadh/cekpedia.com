@@ -1,0 +1,6 @@
+{
+  "source": "app/release/app-release.apk",
+  "sha256": "9396d2a580117a1eb77c9a961b75366b8dbb56621144156e4e4a78fb322fb174",
+  "resource_bytes": "unchanged",
+  "data": "offline fixtures; original activities not run"
+}

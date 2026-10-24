@@ -1,0 +1,34 @@
+"""Package the after gallery, before/after comparison, screenshots and validation notes."""
+import json,pathlib,html,shutil,zipfile
+ROOT=pathlib.Path(__file__).resolve().parents[2]
+OUT=ROOT/'artifacts/after'
+rows=json.loads((OUT/'screens.json').read_text())
+pairs=[('Beranda','02-beranda-preview.png','02-beranda.png'),('Apotek','14-apotek-preview.png','15-apotek.png'),('Masuk','21-login-release-preview.png','01-login.png'),('Detail tempat','18-detail-tempat-preview.png','19-detail-tempat.png'),('Usulkan tempat','16-input-lokasi-atas-preview.png','17-input-lokasi-atas.png'),('Tempat favorit','19-favorit-preview.png','20-favorit.png')]
+(OUT/'before').mkdir(exist_ok=True)
+comparisons=''
+for title,before,after in pairs:
+ shutil.copy2(ROOT/'artifacts/before'/before,OUT/'before'/before)
+ comparisons+=f'<article class="comparison"><h2>{html.escape(title)}</h2><div class="pair"><figure><img loading="lazy" src="before/{before}" alt="Before {title}"><figcaption>BEFORE · Layout APK lama</figcaption></figure><figure><img loading="lazy" src="{after}" alt="After {title}"><figcaption>AFTER · Layout source baru</figcaption></figure></div></article>'
+cards=''.join(f'<article class="screen"><a href="{r["file"]}" target="_blank"><img loading="lazy" src="{r["file"]}" alt="{html.escape(r["title"])}"></a><h2>{html.escape(r["title"])}</h2><p>Preview offline · data contoh</p><a href="{r["file"]}" download>Unduh PNG ukuran penuh</a></article>' for r in rows)
+(OUT/'index.html').write_text('''<!doctype html><html lang="id"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cekpedia · After</title><style>
+*{box-sizing:border-box}body{margin:0;background:#f6f8f5;color:#193b34;font:15px/1.7 system-ui,sans-serif}header,main,footer{max-width:1200px;margin:auto;padding:32px 24px}header{padding-top:56px}h1{font-size:clamp(36px,6vw,64px);letter-spacing:-.05em;line-height:1.05;margin:16px 0 24px}h2{font-size:18px;line-height:1.4}header p{max-width:800px;color:#60736a}.eyebrow{font-size:11px;letter-spacing:3px;font-weight:700;color:#0d7568}.tabs{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}button,.download{border:1px solid #d4e3d7;border-radius:100px;padding:12px 20px;background:white;color:#193b34;cursor:pointer;font:inherit;text-decoration:none}button[aria-pressed=true],.download{background:#0d7568;color:white;border-color:#0d7568}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}.screen,.comparison{padding:18px;background:white;border:1px solid #e3ebe4;border-radius:20px}.screen img{width:100%;height:auto;display:block;border-radius:10px}.screen p{font-size:12px;color:#60736a}.screen a{font-size:12px;color:#0d7568}.comparisons{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:24px}.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}.pair figure{margin:0}.pair img{display:block;width:100%;height:auto;border-radius:8px}.pair figcaption{font-size:10px;color:#60736a;margin-top:12px;font-weight:700}.hidden{display:none}footer{font-size:12px;color:#60736a}a{color:#0d7568}@media(max-width:500px){.comparisons{grid-template-columns:1fr}.comparison{padding:12px}}
+</style><header><div class="eyebrow">CEKPEDIA / AFTER · 24 OKTOBER 2026</div><h1>Jelajah lebih dekat.<br>Tampilan lebih berkesan.</h1><p>Desain baru untuk aplikasi Android Cekpedia: warna teal dan latar hangat, tipografi yang lebih jelas, ikon yang seragam, kartu tempat dengan foto besar, serta alur form dan detail yang lebih rapi.</p><p><strong>Yang kamu lihat:</strong> screenshot Android dari layout source yang sudah diperbarui. APK ini adalah preview offline terpisah; nama tempat dan foto merupakan contoh dari aset proyek. Login Google, Firebase, peta live, telepon, dan pengiriman data belum diuji dalam preview ini. Tampilan aplikasi asli sudah diperbarui di source; build produksi Gradle lama masih memerlukan pemulihan dependensinya.</p><div class="tabs"><button id="all" aria-pressed="true" onclick="show('all')">Semua tampilan · 24</button><button id="compare" aria-pressed="false" onclick="show('compare')">Before → After</button><a class="download" href="../cekpedia-after-preview.apk" download>Unduh APK preview</a></div></header><main><section class="grid" id="screens">'''+cards+'''</section><section class="comparisons hidden" id="comparisons">'''+comparisons+'''</section></main><footer>PNG ukuran penuh 1080 × 2340. Ringkasan: <a href="overview-1.png">Lembar 1</a> · <a href="overview-2.png">Lembar 2</a> · <a href="overview-3.png">Lembar 3</a>. <a href="VALIDATION.md">Catatan pemeriksaan</a>.</footer><script>function show(tab){document.getElementById('screens').classList.toggle('hidden',tab!=='all');document.getElementById('comparisons').classList.toggle('hidden',tab!=='compare');document.getElementById('all').setAttribute('aria-pressed',tab==='all');document.getElementById('compare').setAttribute('aria-pressed',tab==='compare')}</script></html>''')
+(OUT/'VALIDATION.md').write_text('''# Cekpedia after — pemeriksaan
+
+- 24 layout/state aplikasi Android dirender di Pixel 5 API 30 dan diperiksa agar tidak menampilkan kegagalan inflate atau aplikasi lain.
+- Seluruh XML resource Android valid dan berhasil dibangun menggunakan aapt2 melalui Apktool, dengan resource library dari APK rilis lama.
+- Seluruh source Java aplikasi berhasil diperiksa kompilasinya menggunakan Android API 30 dan classpath dari dependensi APK lama. Ini pemeriksaan kompilasi/typecheck, bukan build produksi Gradle.
+- Preview memakai layout source baru yang sama, dengan adapter data contoh. Peta menggunakan placeholder offline. Tidak ada operasi Firebase atau kirim data nyata pada preview.
+- Navigasi dasar, filter pencarian huruf besar, hasil kosong, serta perpindahan daftar ke detail diperiksa di emulator.
+- APK preview tidak menggantikan APK produksi: application ID `me.cekpedia.after`, memakai kunci debug preview, dan tidak mendaftarkan provider/backend aplikasi lama.
+- Build produksi Gradle lama serta login/Firebase/Maps/upload end to end belum diverifikasi. Tidak ada deployment atau publikasi.
+- Resource staging menghapus varian layout lama yang dihasilkan otomatis oleh build terdahulu agar preview memakai layout source baru pada API 30.
+
+Arsip before tetap tersedia di `artifacts/before`. Semua foto di preview berasal dari aset proyek; tidak ada rating atau jarak palsu yang ditampilkan.
+''')
+shutil.copy2(ROOT/'tools/after-preview/build/cekpedia-after.apk',ROOT/'artifacts/cekpedia-after-preview.apk')
+with zipfile.ZipFile(ROOT/'artifacts/cekpedia-after.zip','w',zipfile.ZIP_DEFLATED) as z:
+ for p in sorted(OUT.rglob('*')):
+  if p.is_file():z.write(p,'cekpedia-after/after/'+str(p.relative_to(OUT)))
+ z.write(ROOT/'artifacts/cekpedia-after-preview.apk','cekpedia-after/cekpedia-after-preview.apk')
+print('Packaged after gallery, comparison, APK and screenshots.')
